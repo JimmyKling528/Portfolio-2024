@@ -1,0 +1,2483 @@
+<!DOCTYPE html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin-top:50px;
+        box-shadow: 0 0 5px black;
+    }
+
+/* SCROLL BAR */
+    ::-webkit-scrollbar {
+        width: 10px;
+        box-shadow: 0 0 5px black;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: white;
+        border-radius: 10px;
+        border: solid 5px black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #FFC100;
+        border: solid 2px black;
+        border-radius: 10px;
+    }
+
+/* HORIZONTAL SCROLL BAR */
+    .media-scroller{
+        display: grid;
+        gap: var(--size-3);
+        grid-auto-flow: column;
+        grid-auto-columns: 350px;
+        padding-left: 40px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;  
+    }
+
+    .media-scroller::-webkit-scrollbar {
+        width: 10px;
+        height: 25px;
+    }
+
+    .media-scroller::-webkit-scrollbar-track {
+        background-color: white;
+        border: solid 5px black;
+        border-radius: 10px;
+    }
+
+    .media-scroller::-webkit-scrollbar-thumb {
+        background-color: #FFC100;
+        border: solid 5px black;
+        border-radius: 10px;
+    }
+
+    .media-scroller::-webkit-scrollbar-thumb:hover {
+        background-color: #FFC100;
+    }
+
+    .snaps-inline{
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 40px;
+    }
+
+    .snaps-inline > *{
+        scroll-snap-align: start;
+    }
+
+/* MENU */
+    .menu{
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        text-align: right;
+        border-radius: 0 0 1rem 1rem;
+        border-bottom: 5px solid #FFC100;
+        box-sizing: border-box;
+        position: fixed;
+        margin-left:0;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 200px;
+        z-index: 999;
+        box-shadow: 0 0 5px black;
+    }
+
+    nav ul {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        padding-right: 10px;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+
+    nav a {
+        display: block;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+        font-weight: normal;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.5s;
+    }
+
+    nav a:hover {
+        color: #FFC100;
+        letter-spacing: 3px;
+        text-shadow: 0 0 5px #FFC100;
+        transition: 0.5s;
+    }
+
+/* WELCOME */
+    .welcome-container{
+        display: flex;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 90px;
+        width: 70%;
+        text-align: left;
+        font-size: 50px;
+    }
+
+    .welcome p{
+        text-align: left;      
+        margin-left: 90px;
+        width: 70%;
+        font-size: 30px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:400px;
+        height:400px;
+        border-radius: 50%;
+        margin-top: 30px;
+        margin-right: 200px; 
+        text-align: left;
+    }
+
+/* ABOUT ME */
+    .about-container{
+        display: flex;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 20px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 70%;
+        font-family: 'Nunito', sans-serif, arial;
+        font-size: 25px;
+        font-weight: normal;
+        margin-left:90px;
+        margin-right:30px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        align-items: right;
+        margin-bottom: 10px;
+        margin-left:30px;
+        margin-right:30px;
+        width: 30%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        margin-right:30px;
+        font-size: 25px;
+        font-weight: normal;
+    }
+
+    .skill-rating {
+        font-size: 50px;
+        margin-right:30px;
+    }
+
+    .star {
+        color: #FFC100;
+    }
+
+    .skill-rating {
+        width: 200px;
+        display: flex;
+        margin-top: 0px;
+        align-items: right;
+    }
+
+/* ABOUT ME: CERTIFICATE */
+    .certificate-link-text{
+        color: white;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+
+    .certificate-link-text:hover{
+        color: #FFC100;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+
+/* CIRCLES */
+    .circle-row {
+        display: flex;
+        margin-top: 40px;
+        justify-content: center;
+        align-items: center;
+        overflow:hidden;
+    }
+
+    .left-circles {
+        display: flex;
+        margin-right: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+    }
+
+    .right-circles {
+        display: flex;
+        margin-left: 20px;
+        justify-content: flex-start;
+        align-items: center;
+        position:relative; 
+    }
+
+    .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        margin: 0 10px;
+    }
+
+/* SECTIONS TITLES */
+    .about-me {
+        color: #fff;
+        font-size: 35px;
+        text-align: center;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 50px;
+        white-space: nowrap;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        color: #fff;
+        font-size: 35px;  
+        text-align: center;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 50px;
+    }
+
+    .projects{
+        text-align: center;
+    }
+
+/* PROJECTS */
+    .project_pic{
+        width:300px;
+        height:300px;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        position: relative;
+        border: solid white 5px;
+        border-radius: 10%;
+        text-decoration: none;
+        transition: 1s;
+    }
+
+    .project_pic:hover{
+        scale: 1.1;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: solid #FFC100 5px;
+        transition: 1s;
+    }
+
+    .project-text{
+        background-color: white;
+        text-align: center;
+        color: black;
+        font-family: 'Nunito', sans-serif, arial;
+        font-size: 20px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 300px;    
+        border-radius: 20px;
+    }
+
+    .project-container {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--size-3);
+    }
+
+/* CONTACT */
+    .contact-stuff{
+        margin-top: 40px;
+        padding-bottom: 20px;
+        text-align: center;
+        text-decoration: underline;
+        font-size: 35px;
+        font-weight: normal;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        background-color: transparent;
+        color: white;
+        text-decoration: none;
+        font-size: 50px;
+        width:60px;
+        height:60px; 
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        transition: 0.5s;
+    }
+
+    .contact-link:hover{
+        color: #FFC100;
+        font-size: 50px;  
+        text-shadow: 0 0 5px #FFC100;
+        transition: 0.5s;
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        margin-top: 0px;
+        padding-bottom: 0px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: normal;
+    }
+
+    .certificate-link{
+        background-color: transparent;
+        color: white;
+        text-decoration: none;
+        font-size: 50px;  
+        width:60px;
+        height:60px; 
+        margin-left: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        transition: 0.5s;
+    }
+
+    .container-certificate{
+        display: inline-block;
+    }
+
+    .container-certificate a{
+        background-color: transparent;
+        display: inline-block;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-bottom: 30px;
+        height: 140px;
+        width: 100px;
+    }
+
+    .container-certificate .certificate-text{
+        transition: 0.5s; 
+    }
+    
+    .container-certificate:hover .certificate-text{
+        color: #FFC100;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .container-certificate .fa-solid{
+        transition: 0.5s; 
+    }
+
+    .container-certificate:hover .fa-solid {
+        color: #FFC100;
+        cursor: pointer;
+        text-shadow: 0 0 5px #FFC100;
+        transition: 0.5s;
+    }
+
+    .container-certificate a p{
+        font-size:16px;
+        padding-top: 1px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        background: #FFC100;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        bottom: 40px;
+        right: 20px;
+        color: white;
+        font-size: 22px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 50px;
+        border: solid black 3px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px black;
+        transition: 0.5s;
+    }
+
+/*************************************************************/
+/* SCREEN SIZE 100PX - 320PX*/
+@media screen and (min-width: 100px) and (max-width: 320px){
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        width: 305px;
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: 0 0 5px black;
+    }
+
+    /* WELCOME */
+    .welcome-container{
+        display: block;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 70%;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .welcome p{
+        text-align: center;      
+        margin: auto;
+        width: 70%;
+        font-size: 15px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:200px;
+        height:200px;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+    }
+
+    /* MENU */
+    nav a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        letter-spacing: 0px;
+    }
+
+    /* ABOUT ME */
+    .about-container{
+        display: block;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 20px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 90%;
+        font-size: 15px;
+        margin: auto;
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        margin: auto;
+        margin-left: 15px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        font-size: 20px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .skill-rating {
+        font-size: 40px;
+        margin: auto;
+    }
+
+/* CIRCLES */
+    .circle-row {
+        margin-top: 30px;
+    }
+
+    .left-circles {
+        margin-right: 5px;
+    }
+
+    .right-circles {
+        margin-left: 5px;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+
+/* SECTIONS TITLES */
+    .about-me {
+        font-size: 25px;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        font-size: 25px;  
+    }
+
+    /* PROJECTS */
+    .project_pic{
+        width:200px;
+        height:200px;
+    }
+
+    .project_pic:hover{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-text{
+        font-size: 15px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 200px;    
+    }
+
+    .project-container {
+        width: 200px;
+    }
+/* HORIZONTAL SCROLL BAR */
+.media-scroller{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+/* CONTACT */
+.contact-stuff{
+        font-size: 35px;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        font-size: 40px;
+        width:50px;
+        height:50px; 
+    }
+
+    .contact-link:hover{
+        font-size: 40px;  
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        font-size: 30px;
+    }
+
+    .certificate-link{
+        font-size: 40px;  
+        width:50px;
+        height:50px; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+}
+
+
+/*************************************************************/
+/* SCREEN SIZE 321PX - 570PX*/
+@media screen and (min-width: 321px) and (max-width: 570px){
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        width: 350px;
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: 0 0 5px black;
+    }
+
+    /* WELCOME */
+    .welcome-container{
+        display: block;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 70%;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .welcome p{
+        text-align: center;      
+        margin: auto;
+        width: 70%;
+        font-size: 15px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:200px;
+        height:200px;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+    }
+
+    /* MENU */
+    nav a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        letter-spacing: 0px;
+    }
+
+    /* ABOUT ME */
+    .about-container{
+        display: block;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 20px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 90%;
+        font-size: 15px;
+        margin: auto;
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        margin: auto;
+        margin-left: 15px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        font-size: 20px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .skill-rating {
+        font-size: 40px;
+        margin: auto;
+    }
+
+/* CIRCLES */
+    .circle-row {
+        margin-top: 30px;
+    }
+
+    .left-circles {
+        margin-right: 5px;
+    }
+
+    .right-circles {
+        margin-left: 5px;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+
+/* SECTIONS TITLES */
+    .about-me {
+        font-size: 25px;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        font-size: 25px;  
+    }
+
+    /* PROJECTS */
+    .project_pic{
+        width:200px;
+        height:200px;
+    }
+
+    .project_pic:hover{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-text{
+        font-size: 15px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 200px;    
+    }
+
+    .project-container {
+        width: 200px;
+    }
+/* HORIZONTAL SCROLL BAR */
+.media-scroller{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+/* CONTACT */
+.contact-stuff{
+        font-size: 35px;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        font-size: 40px;
+        width:50px;
+        height:50px; 
+    }
+
+    .contact-link:hover{
+        font-size: 40px;  
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        font-size: 30px;
+    }
+
+    .certificate-link{
+        font-size: 40px;  
+        width:50px;
+        height:50px; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+}
+
+/*************************************************************/
+/* SCREEN SIZE 571PX - 768PX*/
+@media screen and (min-width: 571px) and (max-width: 768px){
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        width: 400px;
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: 0 0 5px black;
+    }
+
+    /* WELCOME */
+    .welcome-container{
+        display: block;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 70%;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .welcome p{
+        text-align: center;      
+        margin: auto;
+        width: 70%;
+        font-size: 15px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:200px;
+        height:200px;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+    }
+
+    /* MENU */
+    nav a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        letter-spacing: 0px;
+    }
+
+    /* ABOUT ME */
+    .about-container{
+        display: block;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 20px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 90%;
+        font-size: 15px;
+        margin: auto;
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        margin: auto;
+        margin-left: 15px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        font-size: 20px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .skill-rating {
+        font-size: 40px;
+        margin: auto;
+    }
+
+/* CIRCLES */
+    .circle-row {
+        margin-top: 30px;
+    }
+
+    .left-circles {
+        margin-right: 5px;
+    }
+
+    .right-circles {
+        margin-left: 5px;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+
+/* SECTIONS TITLES */
+    .about-me {
+        font-size: 25px;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        font-size: 25px;  
+    }
+
+    /* PROJECTS */
+    .project_pic{
+        width:200px;
+        height:200px;
+    }
+
+    .project_pic:hover{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-text{
+        font-size: 15px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 200px;    
+    }
+
+    .project-container {
+        width: 200px;
+    }
+/* HORIZONTAL SCROLL BAR */
+.media-scroller{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+/* CONTACT */
+.contact-stuff{
+        font-size: 35px;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        font-size: 40px;
+        width:50px;
+        height:50px; 
+    }
+
+    .contact-link:hover{
+        font-size: 40px;  
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        font-size: 30px;
+    }
+
+    .certificate-link{
+        font-size: 40px;  
+        width:50px;
+        height:50px; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+}
+
+/*************************************************************/
+/* SCREEN SIZE 769PX - 1360PX*/
+@media screen and (min-width: 769px) and (max-width: 1360px){
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        width: 950px;
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin: auto;
+        margin-top: 40px;
+        box-shadow: 0 0 5px black;
+    }
+
+    /* WELCOME */
+    .welcome-container{
+        display: flex;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 90px;
+        width: 70%;
+        text-align: left;
+        font-size: 40px;
+    }
+
+    .welcome p{
+        text-align: left;      
+        margin-left: 90px;
+        width: 70%;
+        font-size: 20px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:300px;
+        height:300px;
+        border-radius: 50%;
+        margin-top: 30px;
+        margin-right: 50px; 
+        text-align: left;
+    }
+
+    /* ABOUT ME */
+    .about-container{
+        display: flex;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 30px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 70%;
+        font-family: 'Nunito', sans-serif, arial;
+        font-size: 20px;
+        font-weight: normal;
+        margin-left:30px;
+        margin-right:30px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        align-items: right;
+        margin-bottom: 10px;
+        margin-left:30px;
+        margin-right:30px;
+        width: 30%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        margin-right:30px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .skill-rating {
+        font-size: 40px;
+        margin-right:30px;
+    }
+
+    .star {
+        color: #FFC100;
+    }
+
+    .skill-rating {
+        width: 200px;
+        display: flex;
+        margin-top: 0px;
+        align-items: right;
+    }
+
+
+/* SECTIONS TITLES */
+    .about-me {
+        font-size: 35px;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        font-size: 35px;  
+    }
+
+    /* PROJECTS */
+    .project_pic{
+        width:200px;
+        height:200px;
+    }
+
+    .project_pic:hover{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-text{
+        font-size: 15px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 200px;    
+    }
+
+    .project-container {
+        width: 200px;
+    }
+/* HORIZONTAL SCROLL BAR */
+.media-scroller{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+/* CONTACT */
+.contact-stuff{
+        font-size: 35px;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        font-size: 40px;
+        width:50px;
+        height:50px; 
+    }
+
+    .contact-link:hover{
+        font-size: 40px;  
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        font-size: 30px;
+    }
+
+    .certificate-link{
+        font-size: 40px;  
+        width:50px;
+        height:50px; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    
+}
+
+/*************************************************************/
+ /* SCREEN SIZE 2500PX - 4000PX*/
+@media screen and (min-width: 2500px) and (max-width: 4000px){
+    html{
+        background-color: #FFC100;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .main{
+        width: 2400px;
+        background-color: black;
+        color: white;
+        font-family: 'Fredoka One', cursive, arial;
+        border-radius: 1rem;
+        padding-bottom: 20px;
+        margin: auto;
+        margin-top: 90px;
+        box-shadow: 0 0 5px black;
+    }
+
+    /* MENU */
+    nav a {
+        font-size: 40px;
+    }
+
+    nav a:hover {
+        letter-spacing: 3px;
+    }
+
+
+    /* WELCOME */
+    .welcome-container{
+        display: flex;
+    }
+
+    .welcome h1{
+        padding-top: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 90px;
+        width: 70%;
+        text-align: left;
+        font-size: 70px;
+    }
+
+    .welcome p{
+        text-align: left;      
+        margin-left: 90px;
+        width: 70%;
+        font-size: 40px;
+        font-family: 'Nunito', sans-serif, arial;
+    }
+
+    .profile_pic{
+        width:500px;
+        height:500px;
+        border-radius: 50%;
+        margin-top: 30px;
+        margin-right: 100px; 
+        text-align: left;
+    }
+
+    /* ABOUT ME */
+    .about-container{
+        display: flex;  
+    }
+
+    .about{
+        text-align: center;
+        font-size: 40px;
+        flex: 1;
+        margin-top: 60px;
+    }
+
+    .about-text{
+        text-align: left;
+        width: 70%;
+        font-family: 'Nunito', sans-serif, arial;
+        font-size: 40px;
+        font-weight: normal;
+        margin-left:50px;
+        margin-right:30px;
+    }
+
+/* ABOUT ME: SKILLS */
+    .skills {
+        align-items: right;
+        margin-bottom: 10px;
+        margin-left:30px;
+        margin-right:30px;
+        width: 30%;
+    }
+
+    .skill-title{
+        margin-bottom: -10px;
+        margin-right:30px;
+        font-size: 40px;
+        font-weight: normal;
+    }
+
+    .skill-rating {
+        font-size: 80px;
+        margin-right:30px;
+    }
+
+    .star {
+        color: #FFC100;
+    }
+
+    .skill-rating {
+        width: 200px;
+        display: flex;
+        margin-top: 0px;
+        align-items: right;
+    }
+
+
+/* SECTIONS TITLES */
+    .about-me {
+        font-size: 60px;
+    }
+
+    .games, .pages, .drawings, .music, .voiceacting{
+        font-size: 60px;  
+    }
+
+    /* PROJECTS */
+    .project_pic{
+        width:300px;
+        height:300px;
+    }
+
+    .project_pic:hover{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .project-text{
+        font-size: 20px;
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 300px;    
+    }
+
+    .project-container {
+        width: 300px;
+    }
+/* HORIZONTAL SCROLL BAR */
+.media-scroller{
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+/* CONTACT */
+.contact-stuff{
+        font-size: 50px;
+    }
+
+/* CONTACT: LINKS */
+    .contact-link{
+        font-size: 90px;
+        width:100px;
+        height:100px; 
+    }
+
+    .contact-link:hover{
+        font-size: 90px;  
+    }
+
+/* CONTACT: CERTIFICATES */
+    .contact{
+        font-size: 50px;
+    }
+
+    .certificate-link{
+        font-size: 80px;  
+        width:100px;
+        height:100px; 
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .container-certificate a{
+        background-color: transparent;
+        display: inline-block;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+        margin-right: 40px;
+        margin-left: 40px;
+        margin-bottom: 100px;
+        height: 200px;
+        width: 100px;
+    }
+
+    .container-certificate a p{
+        font-size:30px;
+        padding-top: 1px;
+        padding-bottom: 100px;
+    }
+
+/* BACK TO THE TOP */
+    .top-link:hover{
+        scale: 1.1;
+        transition: 0.5s;
+    }
+
+    .top-link{
+        width: 90px;
+        height: 90px;
+        bottom: 10px;
+        font-size: 50px;
+        line-height: 90px;
+    }
+
+
+    
+}   
+</style>
+
+
+
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" type="image/png" href="images/favicon2.png">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/5f891e0181.js" crossorigin="anonymous"></script>
+        <title>Jimmy Kling Portfolio</title>
+    </head>
+
+    <body>
+        <!--MENU-->
+        <div class="menu">
+        <nav id="navbar">
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About Me</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Links & Certificates</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+
+        <div class="main">
+            <!--WELCOME-->
+            <section id="home">
+                <div class="welcome-container">
+
+                    <div class="welcome">
+                        <h1>
+                            Hi o/ <br>
+                            I'm Jimmy
+                        </h1>
+
+                        <p>
+                            This is my Portfolio. I make games on Construct 3. I love game design, especially cute and/or chaotic games, but I also like horror and fantasy.
+                        </p>
+                    </div>
+
+                    <div class="profile_pic">
+                        <img class="profile_pic" src="images/fotin.jpg" alt="jimmy_picture">
+                    </div>
+                </div>
+            </section>
+
+            <!--ABOUT TEXT-->
+            <section id="about">
+                <div class="about">
+                    <div class="circle-row">
+                        <div class="left-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    <div class="about-me">ABOUT ME</div>
+                        <div class="right-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-container">
+                    <p class="about-text">
+                        I'm 23 years old and I just finished college (Game Development). I like planning games and making them on Construct 3. I love doing game jams especially 'cause I think I work better if I have a short deadline.
+                        <br>Apart from game design and game jams, I love voice acting and I do some freelance voice acting work. I've been practing it since 2014 and I learned audio editing because of it.
+                        <br>Since I know audio editing I always care about that a lot when I make a game. I usually edit using Sony Vegas Pro 14.
+                        <br>I also learned Photoshop so I could edit thumbnail images and because of that I started making some better art for my games. I don't make all the art but I make all the text and buttons, sometimes the background and some assets.
+                        <br>My biggest plan is to move to Canada. I have English C2 level (<a href="https://drive.google.com/file/d/18BfiW3kPllYcxeY41pkz71nNdlcmya8f/view" class="certificate-link-text" target="_blank">CERTIFICATE HERE</a>). I want to work with game design and also I will try to be a voice actor in Canada too, and I could be one in Brazil at the same time since now many studios are recording remotely.
+                        <br>
+                        <br><b>TL;DR:</b> I like making games, voice acting, audio editing and editing in Photoshop.
+                    </p>
+    
+            <!--ABOUT SKILLS-->
+                    <div class="skills">
+                        <h3 class="skill-title">Construct 3</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">Sony Vegas Pro 14</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">Photoshop 2020</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">HTML5</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">CSS3</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">FL Studio 20</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+                    
+                        <h3 class="skill-title">Blender</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+
+                        <h3 class="skill-title">Aseprite</h3>
+                        <div class="skill-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--PROJECTS-->
+            <section id="projects">
+                <div class="projects">
+
+            <!--PROJECTS: GAMES-->
+                    <div class="circle-row">
+                        <div class="left-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    <div class="games">GAMES</div>
+                        <div class="right-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="media-scroller snaps-inline">  
+                    <!--GAME: Annoying Weird Thing-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/annoying-weird-thing" target="_blank" title="Annoying Weird Thing">
+                                <img class="project_pic" src="games/pic_annoying_weird_thing.png" alt="pic_annoying_weird_thing">
+                            </a>
+
+                            <p class="project-text">
+                                <b>ANNOYING WEIRD THING</b><br>
+                                My 1st game ever!!!<br>
+                                <b>Engine: </b>
+                                Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Virus Shooter-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/virus-shooter" target="_blank" title="Virus Shooter">
+                                <img class="project_pic" src="games/pic_virus_shooter.png" alt="pic_virus_shooter">
+                            </a>
+
+                            <p class="project-text">
+                                <b>VIRUS SHOOTER</b><br>
+                                My 2nd game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Blokinhus-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/blokinhus" target="_blank" title="Blokinhus">
+                                <img class="project_pic" src="games/pic_blokinhus.png" alt="pic_blokinhus">
+                            </a>
+
+                            <p class="project-text">
+                                <b>BLOKINHUS</b><br>
+                                My 3rd game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Clock-->
+                        <div class="project-container">
+                            <a href="https://drive.google.com/file/d/1VGkwcTnaDATFECFTMid6X9FPttpPQhhJ/view" target="_blank" title="Clock">
+                                <img class="project_pic" src="games/pic_clock.png" alt="pic_clock">
+                            </a>
+
+                            <p class="project-text">
+                                <b>CLOCK</b><br>
+                                Not a game, just a clock<br>
+                                <b>Engine: </b>Unity
+                            </p>
+                        </div>
+
+                    <!--GAME: Little Maze-->
+                        <div class="project-container">
+                            <a href="https://drive.google.com/file/d/1pta-TCimr-Et4y9Wcd-HwiWnIHHSpvlD/view?usp=share_link" target="_blank" title="Little Maze">
+                                <img class="project_pic" src="games/pic_maze.png" alt="pic_maze">
+                            </a>
+
+                            <p class="project-text">
+                                <b>LITTLE MAZE</b><br>
+                                My 4th game!!!<br>
+                                It didn't post with the music<br>
+                                so here is a video ;3<br>
+                                <b>Engine: </b>Unity
+                            </p>
+                        </div>
+
+                    <!--GAME: No Bridge-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/no-bridge" target="_blank" title="No Bridge">
+                                <img class="project_pic" src="games/pic_no_bridge.png" alt="pic_no_bridge">
+                            </a>
+
+                            <p class="project-text">
+                                <b>NO BRIDGE</b><br>
+                                My 5th game!!!<br>
+                                <b>Engine: </b>Unity
+                            </p>
+                        </div>
+
+                    <!--GAME: Deeper and Deeper-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/deeper-and-deeper" target="_blank" title="Deeper and Deeper">
+                                <img class="project_pic" src="games/pic_deeper_and_deeper.png" alt="pic_deeper_and_deeper">
+                            </a>
+
+                            <p class="project-text">
+                                <b>DEEPER AND DEEPER</b><br>
+                                My 6th game!!!<br>
+                                <b>Engine: </b>Unity
+                            </p>
+                        </div>
+
+                    <!--GAME: Bellus Mortis-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/bellus-mortis" target="_blank" title="Bellus Mortis">
+                                <img class="project_pic" src="games/pic_bellus_mortis.png" alt="pic_bellus_mortis">
+                            </a>
+
+                            <p class="project-text">
+                                <b>BELLUS MORTIS</b><br>
+                                My 7th game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Hunter X Prey Simulator-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/hunter-prey-simulator" target="_blank" title="Hunter X Prey [SIMULATOR]">
+                                <img class="project_pic" src="games/pic_et_simulator.png" alt="pic_et_simulator">
+                            </a>
+
+                            <p class="project-text">
+                                <b>HUNTER X PREY [SIMULATOR]</b><br>
+                                Not really a game, a Simulator<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Nisi's Elements-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/nisis-elements" target="_blank" title="Nisi's Elements">
+                                <img class="project_pic" src="games/pic_nisis_elements.png" alt="pic_nisis_elements">
+                            </a>
+
+                            <p class="project-text">
+                                <b>NISI'S ELEMENTS</b><br>
+                                My 8th game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Mustarchup-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/mustarchup" target="_blank" title="Mustarchup">
+                                <img class="project_pic" src="games/pic_mustarchup.png" alt="pic_mustarchup">
+                            </a>
+
+                            <p class="project-text">
+                                <b>MUSTARCHUP</b><br>
+                                My 9th game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: CakEscape-->
+                        <div class="project-container">
+                            <a href="https://jimmykling.itch.io/cakescape" target="_blank" title="CakEscape">
+                                <img class="project_pic" src="games/pic_cakescape.png" alt="pic_cakescape">
+                            </a>
+
+                            <p class="project-text">
+                                <b>CAKESCAPE</b><br>
+                                My 10th game!!!<br>
+                                <b>Engine: </b>Construct 3
+                            </p>
+                        </div>
+
+                    <!--GAME: Brushing Around-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/brushing-around" target="_blank" title="Brushing Around">
+                            <img class="project_pic" src="games/pic_brushing_around.png" alt="pic_brushing_around">
+                        </a>
+
+                        <p class="project-text">
+                            <b>BRUSHING AROUND</b><br>
+                            My 1st Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 3 Days<br>
+                            <b>Ranked (from 93 games)</b><br>
+                            <b>Overall: </b>8th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: HappyLands-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/happylands" target="_blank" title="HappyLands">
+                            <img class="project_pic" src="games/pic_happylands.png" alt="pic_happylands">
+                        </a>
+
+                        <p class="project-text">
+                            <b>HAPPYLANDS</b><br>
+                            My 2nd Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 3 Days<br>
+                            <b>Ranked (from 119 games)</b><br>
+                            <b>Overall: </b>80th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: Spirichange-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/spirichange" target="_blank" title="Spirichange">
+                            <img class="project_pic" src="games/pic_spirichange.png" alt="pic_spirichange">
+                        </a>
+
+                        <p class="project-text">
+                            <b>SPIRICHANGE</b><br>
+                            Project for College<br>
+                            <b>Engine: </b>Construct 3<br>
+
+                        </p>
+                    </div>
+
+                    <!--GAME: Flowery Doggy-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/flowery-doggy" target="_blank" title="Flowery Doggy">
+                            <img class="project_pic" src="games/pic_flowery_doggy.png" alt="pic_flowery_doggy">
+                        </a>
+
+                        <p class="project-text">
+                            <b>FLOWERY DOGGY</b><br>
+                            My 3rd Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 3 Days<br>
+                            <b>Ranked (from 138 games)</b><br>
+                            <b>Overall: </b>20th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: Pumpkin Cat-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/pumpkin-cat" target="_blank" title="Pumpkin Cat">
+                            <img class="project_pic" src="games/pic_pumpkin_cat.png" alt="pic_pumpkin_cat">
+                        </a>
+
+                        <p class="project-text">
+                            <b>PUMPKIN CAT</b><br>
+                            My 4th Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 3 Days<br>
+                            <b>Ranked (from 175 games)</b><br>
+                            <b>Overall: </b>55th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: Crazy Jammy-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/crazy-jamy" target="_blank" title="Crazy Jamy">
+                            <img class="project_pic" src="games/pic_crazy_jamy.png" alt="pic_crazy_jamy">
+                        </a>
+
+                        <p class="project-text">
+                            <b>CRAZY JAMY</b><br>
+                            My 5th Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 3 Days<br>
+                            <b>Ranked (from 58 games)</b><br>
+                            <b>Overall: </b>12th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: ChaosTopia-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/chaostopia" target="_blank" title="ChaosTopia">
+                            <img class="project_pic" src="games/pic_chaostopia.png" alt="pic_chaostopia">
+                        </a>
+
+                        <p class="project-text">
+                            <b>CHAOSTOPIA</b><br>
+                            My 6th Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 20 Days<br>
+                            <b>Ranked (from ? games)</b><br>
+                            <b>Overall: </b>STILL BEING JUDGED<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+
+                    <!--GAME: Rebel Elf-->
+                    <div class="project-container">
+                        <a href="https://jimmykling.itch.io/rebel-elf" target="_blank" title="Rebel Elf">
+                            <img class="project_pic" src="games/pic_rebel_elf.png" alt="pic_rebel_elf">
+                        </a>
+
+                        <p class="project-text">
+                            <b>REBEL ELF</b><br>
+                            My 7th Game Jam!!!<br>
+                            <b>Engine: </b>Construct 3<br>
+                            <b>Made in: </b> 6 Days<br>
+                            <b>Ranked (from 22 games)</b><br>
+                            <b>Overall: </b>7th<br>
+                            <i>Other ranks in the site</i>
+                        </p>
+                    </div>
+                </div>
+
+
+            <!--PROJECTS: PAGES-->
+                    <div class="circle-row">
+                        <div class="left-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    <div class="pages">PAGES</div>
+                        <div class="right-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="media-scroller snaps-inline">  
+                    <!--PAGE: Survey Form-->
+                        <div class="project-container">
+                            <a href="/survey.html" target="_blank" title="Voice Casting Survey Form">
+                                <img class="project_pic" src="pages/pic_survey_form.png" alt="pic_survey_form">
+                            </a>
+
+                            <p class="project-text">
+                                <b>SURVEY FORM</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Tribute-->
+                        <div class="project-container">
+                            <a href="/tribute.html" target="_blank" title="Harvey Milk Tribute Page">
+                                <img class="project_pic" src="pages/pic_tribute.png" alt="pic_tribute">
+                            </a>
+
+                            <p class="project-text">
+                                <b>TRIBUTE PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Documentation-->
+                        <div class="project-container">
+                            <a href="/documentation.html" target="_blank" title="Aura Colors Technical Documentation Page">
+                                <img class="project_pic" src="pages/pic_documentation.png" alt="pic_documentation">
+                            </a>
+
+                            <p class="project-text">
+                                <b>TECHNICAL<br>DOCUMENTATION PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Product-->
+                        <div class="project-container">
+                            <a href="/product.html" target="_blank" title="Instant Noodles Product Landing Page">
+                                <img class="project_pic" src="pages/pic_product.png" alt="pic_product">
+                            </a>
+
+                            <p class="project-text">
+                                <b>PRODUCT LANDING PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Clairs-->
+                        <div class="project-container">
+                            <a href="/4 clairs.html" target="_blank" title="4 'Clairs' of Intuition">
+                                <img class="project_pic" src="pages/pic_clairs.png" alt="pic_clairs">
+                            </a>
+
+                            <p class="project-text">
+                                <b>RANDOM PRACTICE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Survey Adopt a Puffle-->
+                        <div class="project-container">
+                            <a href="/adopt a puffle.html" target="_blank" title="Adopt a Puffle Survey Form">
+                                <img class="project_pic" src="pages/pic_survey_puffle.png" alt="pic_survey_puffle">
+                            </a>
+
+                            <p class="project-text">
+                                <b>SURVEY FORM</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Club Penguin Tribute-->
+                        <div class="project-container">
+                            <a href="/club penguin tribute.html" target="_blank" title="Club Penguin Tribute Page">
+                                <img class="project_pic" src="pages/pic_club_penguin_tribute.png" alt="pic_club_penguin_tribute">
+                            </a>
+
+                            <p class="project-text">
+                                <b>TRIBUTE PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Weirdcore Documentation-->
+                        <div class="project-container">
+                            <a href="/weirdcore documentation.html" target="_blank" title="Weirdcore Documentation Page">
+                                <img class="project_pic" src="pages/pic_weirdcore.png" alt="pic_weirdcore_documentation_page">
+                            </a>
+
+                            <p class="project-text">
+                                <b>TECHNICAL<br>DOCUMENTATION PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Kidcore Aesthetic-->
+                        <div class="project-container">
+                            <a href="/kidcore.html" target="_blank" title="Kidcore Aesthetic Product Landing Page">
+                                <img class="project_pic" src="pages/pic_kidcore.png" alt="pic_kidcore_aesthetic">
+                            </a>
+
+                            <p class="project-text">
+                                <b>PRODUCT LANDING PAGE</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+
+                    <!--PAGE: Simple Portfolio-->
+                        <div class="project-container">
+                            <a href="/simple portfolio.html" target="_blank" title="Simple Portfolio">
+                                <img class="project_pic" src="pages/pic_simple_portfolio.png" alt="pic_simple_portfolio">
+                            </a>
+
+                            <p class="project-text">
+                                <b>SIMPLE PORTFOLIO</b><br>
+                                <b>Used: </b>HTML & CSS
+                            </p>
+                        </div>
+                    </div>
+
+            <!--PROJECTS: ART-->
+                    <div class="circle-row">
+                        <div class="left-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    <div class="drawings">ART</div>
+                        <div class="right-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="media-scroller snaps-inline">  
+                    <!--ART: 2D-->
+                        <div class="project-container">
+                            <a href="https://drive.google.com/drive/folders/1Dh1DaXVSbwodmh_GjukRufobRzEqS8U0?usp=share_link" target="_blank" title="2D Art">
+                                <img class="project_pic" src="drawings/pic_drawings_2d.png" alt="pic_art_2d">
+                            </a>
+
+                            <p class="project-text">
+                                <b>2D ART</b><br>
+                                <b>Software: </b>Photoshop & Paint
+                            </p>
+                        </div>
+
+                    <!--ART: 3D-->
+                        <div class="project-container">
+                            <a href="https://drive.google.com/drive/folders/1FAL97vmAFl8_AWjQH_-c5xlZrpgTHkry?usp=share_link" target="_blank" title="3D Art">
+                                <img class="project_pic" src="drawings/pic_drawings_3d.png" alt="pic_art_3d">
+                            </a>
+
+                            <p class="project-text">
+                                <b>3D ART</b><br>
+                                <b>Software: </b>Blender
+                            </p>
+                        </div>
+
+                    <!--ART: Pixel Art-->
+                        <div class="project-container">
+                            <a href="https://drive.google.com/drive/folders/12WIIns9ZHGHt0Dk2cw42vGH61O-eXtYk?usp=share_link" target="_blank" title="Pixel Art">
+                                <img class="project_pic" src="drawings/pic_pixel_art.png" alt="pic_pixel_art">
+                            </a>
+
+                            <p class="project-text">
+                                <b>PIXEL ART</b><br>
+                                <b>Software: </b>Aseprite
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+            </section>
+
+                <!--CONTACT-->
+                <section id="contact">
+                    <!--CONTACT: LINKS-->
+                    <div class="contact">
+                        <div class="contact-stuff">LINKS</div>
+
+                    <!--INSTAGRAM-->
+                        <a href="https://www.instagram.com/jimmykling23/" class="contact-link" target="_blank" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                    <!--FACEBOOK-->
+                        <a href="https://www.facebook.com/people/Jimmy-Kling/pfbid02YcXaZKih8pwXV9bWHwaFbB3bUciKLFEwfR1ry8DMr1AuTVmv9SwJ3BBAK3xpgH1al/" class="contact-link" target="_blank" title="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                    <!--WHATSAPP-->
+                        <a href="https://wa.me/5551993460606" class="contact-link" target="_blank" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                    <!--GITHUB-->
+                        <a href="https://github.com/JimmyKling528" class="contact-link" target="_blank" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                    <!--FREECODECAMP-->
+                    <a href="https://www.freecodecamp.org/JimmyKling" class="contact-link" target="_blank" title="FreeCodeCamp">
+                        <i class="fa-brands fa-free-code-camp"></i>
+                    </a>
+
+                
+
+                    <!--ITCHIO-->
+                        <a href="https://jimmykling.itch.io/" class="contact-link" target="_blank" title="Itch.io">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </a>
+
+                    <!--ARTSTATION-->
+                        <a href="https://www.artstation.com/jimmykling" class="contact-link" target="_blank" title="ArtStation">
+                            <i class="fa-brands fa-artstation"></i>
+                        </a>
+                    </div>
+
+                    <!--CONTACT: CERTIFICATES-->
+                    <div class="contact">
+                        <div class="contact-stuff">CERTIFICATES</div>
+
+                        <!--CERTIFICATE-->
+                        <div class="container-certificate">
+                            <a href="https://drive.google.com/file/d/18BfiW3kPllYcxeY41pkz71nNdlcmya8f/view" class="certificate-link" target="_blank" title="English Certificate">
+                                <i class="fa-solid fa-certificate"></i>
+                            
+
+                                <p class="certificate-text">
+                                    English Level Certificate
+                                </p>
+                            </a>
+                        </div>
+
+                        <!--CERTIFICATE-->
+                        <div class="container-certificate">
+                            <a href="https://freecodecamp.org/certification/JimmyKling/responsive-web-design" class="certificate-link" target="_blank" title="Responsive Web Design Certificate">   
+                                <i class="fa-solid fa-certificate"></i>
+                            
+                           
+                                <p class="certificate-text">
+                                    Responsive Web Design Certificate
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            <!--BACK TO THE TOP-->  
+            <div>
+                <a href="#" class="top-link">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
